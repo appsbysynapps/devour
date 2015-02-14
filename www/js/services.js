@@ -115,25 +115,32 @@ angular.module('starter.services', ['firebase'])
   }
 })
 
-.factory('Quizzes', function($firebase) {
-  // Might use a resource here that returns a JSON array
-  var ref = new Firebase("https://quizlr.firebaseio.com/quizzes");
-  var sync = $firebase(ref);
-  // download the data into a local object
-  var syncObject = sync.$asObject();
-  //syncObject.$bindTo($scope, "quizzes");
-
+.factory("MyYelpAPI", function($http) {
+  function randomString(length, chars) {
+    var result = '';
+    for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
+    return result;
+  }
   return {
-    all: function() {
-      return sync.$asArray();
-    },
-    get: function(quizId) {
-      var ref2 = new Firebase("https://quizlr.firebaseio.com/quizzes/"+quizId);
-      return $firebase(ref2).$asObject();
-    },
-    add: function(object) {
-      sync.$push(object);
-    },
+      "retrieveYelp": function(name, callback) {
+          var method = 'GET';
+          var url = 'http://api.yelp.com/v2/search';
+          var params = {
+                  callback: 'angular.callbacks._0',
+                  location: '20009',
+                  oauth_consumer_key: 'YXGa4ru-gTal2YshH1sA8A', //Consumer Key
+                  oauth_token: 'gmiTY407KpN0U4qdU2ea9BgJTXvianPF', //Token
+                  oauth_signature_method: "HMAC-SHA1",
+                  oauth_timestamp: new Date().getTime(),
+                  oauth_nonce: randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'),
+                  term: 'food'
+              };
+          var consumerSecret = 'bBHFOWAQyzK8JDTmBGnacSioY6c'; //Consumer Secret
+          var tokenSecret = 'bR6DViXqQNm7Pu9JdUWxDWUWD2s'; //Token Secret
+          var signature = oauthSignature.generate(method, url, params, consumerSecret, tokenSecret, { encodeSignature: false});
+          params['oauth_signature'] = signature;
+          $http.jsonp(url, {params: params}).success(callback);
+      }
   }
 })
 /**

@@ -4,11 +4,14 @@ angular.module('starter.controllers', [])
   $scope.foods = Foods.all();
 })
 
-.controller('ChatsCtrl', function($scope, Chats) {
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  }
+.controller('RestaurantsCtrl', function($scope, MyYelpAPI) {
+  $scope.businesses = [];
+  MyYelpAPI.retrieveYelp('', function(data) {
+    $scope.businesses = data.businesses;
+    console.log(data);
+    console.log(data.businesses); 
+  });
+
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
