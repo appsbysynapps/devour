@@ -23,6 +23,24 @@ angular.module('starter.controllers', [])
   $scope.friend = Friends.get($stateParams.friendId);
 })
 
+.controller('FoodAddCtrl', function($scope, Foods) {
+
+  $scope.food = {}; 
+  
+  $scope.submitForm = function(){
+    $scope.food.date = Firebase.ServerValue.TIMESTAMP;
+    Foods.add($scope.food);
+    $scope.food = {
+      'name': '',
+      'restaurant': '',
+      'rating': 0,
+      'review': '',
+    };
+
+  };
+
+})
+
 .controller('AccountCtrl', function($scope) {
   $scope.settings = {
     enableFriends: true

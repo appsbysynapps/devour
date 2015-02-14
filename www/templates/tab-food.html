@@ -1,8 +1,8 @@
 <ion-view view-title="Dashboard">
   <ion-content class="padding">
-    <button class="button icon-left ion-plus-circled button-positive">Favorites</button>
+    <a href="#/tab/food/add"><button class="button icon-left ion-plus-circled button-positive" >Add</button></a>
     <div class="card" ng-repeat="food in foods" style="clear: both">
-      <ion-item href="#/tab/foods/{{food.$id}}/0/0"> <p style="float:left"> {{food.name}} </p> <p style="float:right"> at {{food.restaurant}} </p></ion-item>
+      <ion-item href="#/tab/food/{{food.$id}}/0/0"> <p style="float:left"> {{food.name}} </p> <p style="float:right"> at {{food.restaurant}} </p></ion-item>
     </div>
   </ion-content>
 </ion-view>

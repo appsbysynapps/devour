@@ -47,6 +47,15 @@ angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'starter.
       }
     }
   })
+  .state('tab.food-add', {
+    url: '/food/add',
+    views: {
+      'tab-food': {
+        templateUrl: 'templates/tab-food-add.html',
+        controller: 'FoodAddCtrl'
+      }
+    }
+  })
 
   .state('tab.restaurants', {
       url: '/restaurants',
@@ -86,12 +95,12 @@ angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'starter.
       }
     })
 
-  .state('tab.account', {
-    url: '/account',
+  .state('tab.add', {
+    url: '/add',
     views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+      'tab-add': {
+        templateUrl: 'templates/tab-food-add.html',
+        controller: 'FoodAddCtrl'
       }
     }
   });
