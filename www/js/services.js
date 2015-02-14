@@ -1,4 +1,4 @@
-angular.module('starter.services', [])
+angular.module('starter.services', ['firebase'])
 
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
@@ -49,6 +49,49 @@ angular.module('starter.services', [])
   }
 })
 
+.factory('Foods', function($firebase) {
+  // Might use a resource here that returns a JSON array
+  var ref = new Firebase("https://devour.firebaseio.com/foods");
+  var sync = $firebase(ref);
+  // download the data into a local object
+  var syncObject = sync.$asObject();
+  //syncObject.$bindTo($scope, "quizzes");
+
+  return {
+    all: function() {
+      return sync.$asArray();
+    },
+    get: function(quizId) {
+      var ref2 = new Firebase("https://devour.firebaseio.com/foods"+foodId);
+      return $firebase(ref2).$asObject();
+    },
+    add: function(object) {
+      sync.$push(object);
+    },
+  }
+})
+
+.factory('Quizzes', function($firebase) {
+  // Might use a resource here that returns a JSON array
+  var ref = new Firebase("https://quizlr.firebaseio.com/quizzes");
+  var sync = $firebase(ref);
+  // download the data into a local object
+  var syncObject = sync.$asObject();
+  //syncObject.$bindTo($scope, "quizzes");
+
+  return {
+    all: function() {
+      return sync.$asArray();
+    },
+    get: function(quizId) {
+      var ref2 = new Firebase("https://quizlr.firebaseio.com/quizzes/"+quizId);
+      return $firebase(ref2).$asObject();
+    },
+    add: function(object) {
+      sync.$push(object);
+    },
+  }
+})
 /**
  * A simple example service that returns some data.
  */
