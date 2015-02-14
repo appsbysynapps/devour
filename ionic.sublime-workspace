@@ -1,0 +1,323 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"et",
+				"et"
+			],
+			[
+				"Daniel",
+				"DanielMichael"
+			],
+			[
+				"im",
+				"image"
+			],
+			[
+				"JPG",
+				"JPG"
+			],
+			[
+				"jpg",
+				"jpg"
+			],
+			[
+				"album",
+				"albumname"
+			],
+			[
+				"img",
+				"img"
+			],
+			[
+				"time",
+				"title-image"
+			],
+			[
+				"attrib",
+				"attributeName"
+			],
+			[
+				"s",
+				"script"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 150.0,
+		"selected_items":
+		[
+			[
+				"inden",
+				"Indentation: Reindent Lines"
+			]
+		],
+		"width": 512.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/NIH/test.py",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/NIH/test2.py",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/styles/mystyle.css",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/styles/bootswatch.less",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/styles/index.less",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/styles/variables.less",
+		"/C/Users/Matthew/Desktop/bootstrap-3.3.1/bootstrap-3.3.1/less/bootstrap.less",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/styles/NewSuperhero/bootswatch.less",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/styles/NewSuperhero/variables.less",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/styles/variables.css",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/styles/bootstrap.css",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/views/2013awards.html",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/views/image.html",
+		"/C/Users/Matthew/AppData/Roaming/Sublime Text 3/Packages/User/JavaScript.sublime-settings",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/views/blog.html",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/img/albums/convention2014/Award.JPG",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/img/app.js",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/views/studyguides.html",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/views/conventiontests.html",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/2013awards.html",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/views/interactivequizzes.html",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/views/forum.html",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/views/convention.html",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/views/about.html",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/scripts/grid.js",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/views/calendar.html",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/GammaGallery/GammaGallery/index.html",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/scripts/ekko-lightbox.min.js",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/styles/ekko-lightbox.min.css",
+		"/C/Users/Matthew/Desktop/test/node-js-getting-started/package.json",
+		"/C/Users/Matthew/Desktop/test/node-js-getting-started/index.js",
+		"/C/Users/Matthew/Desktop/test/node-js-getting-started/newrelic.js",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/styles/component.css",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/styles/default.css",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/views/poopyindex.html",
+		"/C/Users/Matthew/Downloads/Themes/bootswatch/superhero/variables.less",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/Dev Club/Angular Fire Tutorial v2/ang-news-v2-sourcecode/app/scripts/app.js",
+		"/C/Users/Matthew/SkyDrive/Development/ThumbnailGridExpandingPreview/ThumbnailGridExpandingPreview/css/default.css",
+		"/C/Users/Matthew/SkyDrive/Development/ThumbnailGridExpandingPreview/ThumbnailGridExpandingPreview/index.html",
+		"/C/Users/Matthew/SkyDrive/Development/ThumbnailGridExpandingPreview/ThumbnailGridExpandingPreview/README.md",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/views/home.html",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/scripts/ui-router-styles.js",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/Dev Club/Angular Fire Tutorial v2/ang-news-v2-sourcecode/app/scripts/controllers/postview.js",
+		"/C/Users/Matthew/SkyDrive/Development/ThumbnailGridExpandingPreview/ThumbnailGridExpandingPreview/css/component.css",
+		"/C/Users/Matthew/SkyDrive/Development/ThumbnailGridExpandingPreview/ThumbnailGridExpandingPreview/add.html",
+		"/C/Users/Matthew/SkyDrive/Development/ThumbnailGridExpandingPreview/ThumbnailGridExpandingPreview/js/grid.js",
+		"/C/Users/Matthew/Downloads/Themes/bootswatch/superhero/bootstrap.css",
+		"/C/Users/Matthew/Downloads/Themes/bootswatch/superhero/bootswatch.less",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/styles/bootstrap.min.css",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/views/hometest.html",
+		"/C/Users/Matthew/SkyDrive/11th Grade 2014-2015/AP Latin/LHSWebsite/scripts/normalizecarousel.js"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"simple_tif",
+			"link-hover-decoration",
+			"navbar-default-bg",
+			"bootstrap",
+			"font",
+			"BlogCtrl",
+			".dropdown-menu >",
+			".active",
+			".dropdown-menu .active",
+			".dropdown-menu",
+			"white",
+			"id=",
+			"'active').remove",
+			"active",
+			"B",
+			"href=\"Certamen/2013_TJLatin1.doc\"",
+			"href",
+			"#c",
+			"#",
+			"image-container",
+			"ekko-lightbox",
+			"mystyle",
+			"path = ",
+			"albumname",
+			"red, blue",
+			";",
+			".navbar",
+			"</b> 12, V",
+			"Cabbage bamboo shoot broccoli rabe chickpea chard sea lettuce lettuce ricebean artichoke earthnut pea aubergine okra brussels sprout avocado tomato.",
+			">\">",
+			"http://cargocollective.com/jaimemartinez/",
+			"height",
+			"299",
+			".jpg",
+			"h2",
+			"POsitionPreview",
+			"images",
+			"images/",
+			"container >",
+			"*",
+			"*, ",
+			"clearfix {",
+			"clearfix",
+			"navbar-default-bg",
+			"table-border-color",
+			"well-bg",
+			".table-hover",
+			".dropdown-menu",
+			"box-shadow: none",
+			".box-shadow",
+			"602157",
+			"body",
+			"background-color:",
+			"body",
+			".navbar",
+			".btn .btn-primary",
+			"blockquote",
+			"navbar-nav >",
+			"navbar-nav",
+			"navbar",
+			"well",
+			"blockquote",
+			" title-image",
+			"h1 {",
+			"h1 {'",
+			"h1 {",
+			"p {",
+			"p ",
+			"));\n",
+			"console.log",
+			"#602157",
+			"a.active",
+			"active"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "ionic.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
