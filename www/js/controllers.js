@@ -25,16 +25,14 @@ angular.module('starter.controllers', [])
 
 .controller('FoodAddCtrl', function($scope, Foods) {
 
-  $scope.food = {}; 
-  
+  $scope.food = {'reviews': [], 'avg_rating': 0}; 
+
   $scope.submitForm = function(){
     $scope.food.date = Firebase.ServerValue.TIMESTAMP;
     Foods.add($scope.food);
     $scope.food = {
       'name': '',
-      'restaurant': '',
-      'rating': 0,
-      'review': '',
+      'restaurant': ''
     };
 
   };

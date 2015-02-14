@@ -71,6 +71,50 @@ angular.module('starter.services', ['firebase'])
   }
 })
 
+.factory('Restaurants', function($firebase) {
+  // Might use a resource here that returns a JSON array
+  var ref = new Firebase("https://devour.firebaseio.com/restaurants");
+  var sync = $firebase(ref);
+  // download the data into a local object
+  var syncObject = sync.$asObject();
+  //syncObject.$bindTo($scope, "quizzes");
+
+  return {
+    all: function() {
+      return sync.$asArray();
+    },
+    get: function(quizId) {
+      var ref2 = new Firebase("https://devour.firebaseio.com/foods"+foodId);
+      return $firebase(ref2).$asObject();
+    },
+    add: function(object) {
+      sync.$push(object);
+    },
+  }
+})
+
+.factory('Reviews', function($firebase) {
+  // Might use a resource here that returns a JSON array
+  var ref = new Firebase("https://devour.firebaseio.com/reviews");
+  var sync = $firebase(ref);
+  // download the data into a local object
+  var syncObject = sync.$asObject();
+  //syncObject.$bindTo($scope, "quizzes");
+
+  return {
+    all: function() {
+      return sync.$asArray();
+    },
+    get: function(quizId) {
+      var ref2 = new Firebase("https://devour.firebaseio.com/foods"+foodId);
+      return $firebase(ref2).$asObject();
+    },
+    add: function(object) {
+      sync.$push(object);
+    },
+  }
+})
+
 .factory('Quizzes', function($firebase) {
   // Might use a resource here that returns a JSON array
   var ref = new Firebase("https://quizlr.firebaseio.com/quizzes");
