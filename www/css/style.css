@@ -1,2 +1,6 @@
 /* Empty. Add your own CSS if you like */
 img.blur {-webkit-filter: blur(7px) brightness(.7); filter: blur(7px); }
+
+body {
+	font: 'Lato 400', sans-serif;
+}

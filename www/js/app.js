@@ -53,6 +53,15 @@ angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'starter.
       }
     }
   })
+  .state('tab.food-detail', {
+    url: '/food/:restaurantId/:foodId',
+    views: {
+      'tab-food': {
+        templateUrl: 'templates/food_detail.html',
+        controller: 'FoodDetailCtrl'
+      }
+    }
+  })
   .state('tab.food-add', {
     url: '/food/add',
     views: {

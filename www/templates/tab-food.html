@@ -1,8 +1,6 @@
 <ion-view view-title="Food">
   <ion-content class="padding">
     <div class="list">
-
-      <a href="#/tab/food/add"><button class="button icon-left ion-plus-circled button-positive" >Add</button></a>
     <label class="item item-input">
             <i class="icon ion-search placeholder-icon"></i>
             <input type="text" placeholder="Search" ng-model="query">
@@ -23,7 +21,7 @@
       <i class="icon ion-android-star" style="font-size:20px" ng-show="food.stars>3"></i>
       <i class="icon ion-android-star-outline" style="font-size:20px" ng-hide="food.stars>4"></i>
       <i class="icon ion-android-star" style="font-size:20px" ng-show="food.stars>4"></i>
-      <ion-item href="#/tab/food/{{food.$id}}/0/0"> <p style="float:left"> {{food.name}} </p></ion-item>
+      <ion-item href="#/tab/food/{{food.restaurantId}}/{{food.$id}}"> <p style="float:left"> {{food.name}} </p></ion-item>
     </div>
   </ion-content>
 </ion-view>
