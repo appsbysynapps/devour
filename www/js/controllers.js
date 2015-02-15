@@ -17,11 +17,10 @@ angular.module('starter.controllers', [])
 
 .controller('RestaurantsDetailCtrl', function($scope, $stateParams, MyYelpBusiness, IncrementTheShit, Foods, Restaurants) {
   $scope.restaurantId = $stateParams.restaurantId;
-  IncrementTheShit.addone();
-  MyYelpBusiness.retrieveYelp($scope.restaurantId, function(data) {
+  MyYelpBusiness.retrieveYelp($scope.restaurantId, function(data){
     $scope.restaurant = data;
-    $scope.restaurantDishes = Restaurants.getDishes($scope.restaurantId); //firebase restaurant
   }, IncrementTheShit.get());
+  $scope.restaurantDishes = Restaurants.getDishes($scope.restaurantId); //firebase restauran
   $scope.foods = Foods;
   $scope.active = 'best_dishes';
   $scope.setActive = function(type) {

@@ -174,20 +174,39 @@ angular.module('starter.services', ['firebase'])
   return {
       "retrieveYelp": function(name, callback, callbackint) {
           var method = 'GET';
-          var url = 'http://api.yelp.com/v2/business/'+name;
-          var params = {
-                  callback: 'angular.callbacks._'+callbackint,
+          var request_url = 'http://api.yelp.com/v2/business/'+name;
+          var parameters = {
                   oauth_consumer_key: 'YXGa4ru-gTal2YshH1sA8A', //Consumer Key
                   oauth_token: 'gmiTY407KpN0U4qdU2ea9BgJTXvianPF', //Token
                   oauth_signature_method: "HMAC-SHA1",
                   oauth_timestamp: new Date().getTime(),                  
-                  oauth_nonce: randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'),
+                  oauth_nonce: randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
               };
           var consumerSecret = 'bBHFOWAQyzK8JDTmBGnacSioY6c'; //Consumer Secret
           var tokenSecret = 'bR6DViXqQNm7Pu9JdUWxDWUWD2s'; //Token Secret
-          var signature = oauthSignature.generate(method, url, params, consumerSecret, tokenSecret, { encodeSignature: false});
-          params['oauth_signature'] = signature;
-          $http.jsonp(url, {params: params}).success(callback).error(function(data, boo){console.log(data, boo)});
+          var signature = oauthSignature.generate(method, request_url, parameters, consumerSecret, tokenSecret, { encodeSignature: false});
+          parameters['oauth_signature'] = signature;
+          var urlstring = 'http://api.yelp.com/v2/business/'+name+'?';
+          for(var x in parameters){
+            if (parameters.hasOwnProperty(x)) {
+              urlstring+= x + '=' + parameters[x] + '&';
+            }
+          }
+          urlstring = urlstring.substring(0, urlstring.length-1);
+          console.log(urlstring);
+          $.jsonp({
+            url: urlstring, // any JSON endpoint
+            corsSupport: false, // if URL above supports CORS (optional)
+            jsonpSupport: true, // if URL above supports JSONP (optional)
+            data: parameters, 
+            success: callback,
+            error: function(data, boo, bah){
+              console.log(data +' ' + boo+' '+bah);
+              console.log(data);
+            }
+            // error, etc.
+          });
+          //$http({url: request_url, method: 'GET', params: parameters}).success(function(data, status, headers, config){return data}).error(function(data, boo){console.log(data, boo)});
       }
   }
 })
