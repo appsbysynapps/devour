@@ -13,7 +13,17 @@
         
         
     <div class="card" ng-repeat="food in foods(query)" style="clear: both">
-      <ion-item href="#/tab/food/{{food.$id}}/0/0"> <p style="float:left"> {{food.name}} </p> <p style="float:right"> at {{food.restaurant}} </p></ion-item>
+      <i class="icon ion-android-star-outline" style="font-size:20px" ng-hide="food.stars>0"></i>
+      <i class="icon ion-android-star" style="font-size:20px" ng-show="food.stars>0"></i> 
+      <i class="icon ion-android-star-outline" style="font-size:20px" ng-hide="food.stars>1"></i>
+      <i class="icon ion-android-star" style="font-size:20px" ng-show="food.stars>1"></i>
+      <i class="icon ion-android-star-outline" style="font-size:20px" ng-hide="food.stars>2"></i> 
+      <i class="icon ion-android-star" style="font-size:20px" ng-show="food.stars>2"></i>
+      <i class="icon ion-android-star-outline" style="font-size:20px" ng-hide="food.stars>3"></i>
+      <i class="icon ion-android-star" style="font-size:20px" ng-show="food.stars>3"></i>
+      <i class="icon ion-android-star-outline" style="font-size:20px" ng-hide="food.stars>4"></i>
+      <i class="icon ion-android-star" style="font-size:20px" ng-show="food.stars>4"></i>
+      <ion-item href="#/tab/food/{{food.$id}}/0/0"> <p style="float:left"> {{food.name}} </p></ion-item>
     </div>
   </ion-content>
 </ion-view>

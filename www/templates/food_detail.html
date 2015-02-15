@@ -8,11 +8,23 @@
   <ion-content class="padding">
     <h1> {{foodTitle}} </h1>
     <h2>{{avgScore() }}</h2>
+    <h3>at {{restaurant.name}}</h3>
 
     <a href="#/tab/restaurants/{{restaurantId}}/{{foodId}}/newReview" style="text-decoration:none"><button class="button button-block button-positive" >Write Review</button></a>
 
     <div class="card" ng-repeat="reviewId in reviewIds">
-      <ion-item> {{getText(reviewId.$value)}}  </ion-item> 
+      <i class="icon ion-android-star-outline" style="font-size:20px"  ng-hide="getRating(reviewId)>0"></i>
+      <i class="icon ion-android-star" style="font-size:20px"ng-show="getRating(reviewId)>0"></i>
+      <i class="icon ion-android-star-outline" style="font-size:20px" ng-hide="getRating(reviewId)>1"></i>
+      <i class="icon ion-android-star" style="font-size:20px" ng-show="getRating(reviewId)>1"></i>
+      <i class="icon ion-android-star-outline" style="font-size:20px" ng-hide="getRating(reviewId)>2"></i> 
+      <i class="icon ion-android-star" style="font-size:20px" ng-show="getRating(reviewId)>2"></i>
+      <i class="icon ion-android-star-outline" style="font-size:20px" ng-hide="getRating(reviewId)>3"></i>
+      <i class="icon ion-android-star" style="font-size:20px" ng-show="getRating(reviewId)>3"></i>
+      <i class="icon ion-android-star-outline" style="font-size:20px" ng-hide="getRating(reviewId)>4"></i>
+      <i class="icon ion-android-star" style="font-size:20px" ng-show="getRating(reviewId)>4"></i>
+
+      <ion-item> {{getText(reviewId.$value)}}</ion-item> 
     </div>
   </ion-content>
 

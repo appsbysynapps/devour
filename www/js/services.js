@@ -95,7 +95,6 @@ angular.module('starter.services', ['firebase'])
     },
     search: function(query) {
         return $filter('filter')(sync.$asArray(),function(food) {
-          console.log(food.name.indexOf(query))
           return !query || !food.name || (food.name.toLowerCase()).indexOf(query.toLowerCase())>-1;
       });
     },
@@ -240,7 +239,6 @@ angular.module('starter.services', ['firebase'])
             }
           }
           urlstring = urlstring.substring(0, urlstring.length-1);
-          console.log(urlstring);
           $.jsonp({
             url: urlstring, // any JSON endpoint
             corsSupport: false, // if URL above supports CORS (optional)

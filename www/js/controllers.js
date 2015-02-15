@@ -1,8 +1,10 @@
 angular.module('starter.controllers', [])
 
-.controller('FoodCtrl', function($scope, Foods) {
+.controller('FoodCtrl', function($scope, Foods, MyYelpBusiness, IncrementTheShit) {
+  $scope.Math = window.Math;
   $scope.foods = Foods.search;
-    console.log('not anywhere');
+
+
 })
 
 .controller('RestaurantsCtrl', function($scope, MyYelpAPI, IncrementTheShit) {
@@ -95,12 +97,14 @@ angular.module('starter.controllers', [])
   };
 })
 */
-.controller('FoodDetailCtrl', function($scope, $stateParams, Foods, Restaurants, Reviews) {
+.controller('FoodDetailCtrl', function(IncrementTheShit, $scope, $stateParams, MyYelpBusiness, Foods, Restaurants, Reviews) {
   $scope.Math = window.Math;
   $scope.foodTitle = Foods.getName($stateParams.foodId);
   $scope.total_rating = Foods.getRating($stateParams.foodId);
   $scope.num_reviews = Foods.getNumReviews($stateParams.foodId);
-
+  MyYelpBusiness.retrieveYelp($stateParams.restaurantId, function(data){
+    $scope.restaurant = data;
+  }, IncrementTheShit.get());
   $scope.foodId = $stateParams.foodId;
   $scope.reviewIds = [];
   var x = Foods.getReviews($stateParams.foodId);
@@ -115,6 +119,11 @@ angular.module('starter.controllers', [])
   $scope.avgScore = function(){
     return $scope.Math.round($scope.total_rating / $scope.reviewIds.length);
   }
+
+  $scope.getRating = function(reviewId){
+    return Reviews.getRating(reviewId.$value);
+  };
+
 })
 
 
