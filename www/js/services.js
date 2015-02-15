@@ -122,11 +122,11 @@ angular.module('starter.services', ['firebase'])
     return result;
   }
   return {
-      "retrieveYelp": function(name, callback) {
+      "retrieveYelp": function(name, callback, callbackint) {
           var method = 'GET';
           var url = 'http://api.yelp.com/v2/search';
           var params = {
-                  callback: 'angular.callbacks._0',
+                  callback: 'angular.callbacks._'+callbackint,
                   location: '20009',
                   oauth_consumer_key: 'YXGa4ru-gTal2YshH1sA8A', //Consumer Key
                   oauth_token: 'gmiTY407KpN0U4qdU2ea9BgJTXvianPF', //Token
@@ -150,11 +150,11 @@ angular.module('starter.services', ['firebase'])
     return result;
   }
   return {
-      "retrieveYelp": function(name, callback) {
+      "retrieveYelp": function(name, callback, callbackint) {
           var method = 'GET';
           var url = 'http://api.yelp.com/v2/business/'+name;
           var params = {
-                  callback: 'angular.callbacks._0',
+                  callback: 'angular.callbacks._'+callbackint,
                   oauth_consumer_key: 'YXGa4ru-gTal2YshH1sA8A', //Consumer Key
                   oauth_token: 'gmiTY407KpN0U4qdU2ea9BgJTXvianPF', //Token
                   oauth_signature_method: "HMAC-SHA1",
@@ -165,8 +165,20 @@ angular.module('starter.services', ['firebase'])
           var tokenSecret = 'bR6DViXqQNm7Pu9JdUWxDWUWD2s'; //Token Secret
           var signature = oauthSignature.generate(method, url, params, consumerSecret, tokenSecret, { encodeSignature: false});
           params['oauth_signature'] = signature;
-          $http.jsonp(url, {params: params}).success(callback);
+          console.log(name);
+          $http.jsonp(url, {params: params}).success(callback).error(function(data, boo){console.log(data, boo)});
       }
+  }
+})
+.factory("IncrementTheShit", function($http) {
+  var x = -1;
+  return {
+    addone: function() {
+      x = x+1;
+    },
+    get: function() {
+      return x;
+    },
   }
 })
 /**
