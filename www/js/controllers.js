@@ -31,6 +31,10 @@ angular.module('starter.controllers', [])
   };
 })
 
+.controller('RestaurantsDetailNewDishCtrl', function($scope, $stateParams, MyYelpBusiness, IncrementTheShit) {
+  
+})
+
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
   $scope.chat = Chats.get($stateParams.chatId);
 })
