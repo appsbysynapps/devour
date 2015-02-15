@@ -28,7 +28,7 @@ angular.module('starter.controllers', [])
   };
   $scope.isActive = function(type) {
       return type === $scope.active;
-  };
+  }; 
 
   $scope.getName = function(object){
     console.log(object.$id);
@@ -39,7 +39,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('RestaurantsDetailNewDishCtrl', function($scope, $stateParams, Foods, Restaurants) {
-  $scope.dish = {'name': '', 'reviews': [], 'avg_rating': 0, 'restaurantId': $stateParams.restaurantId}; 
+  $scope.dish = {'name': '', 'reviews': [], 'avg_rating': 0, 'num_reviews':0, 'restaurantId': $stateParams.restaurantId}; 
   console.log('peorpot' + $scope.dish);
   $scope.submitForm = function(){
     Foods.add($scope.dish).then(function(ref) {
@@ -92,12 +92,26 @@ angular.module('starter.controllers', [])
     
   };
 })
-.controller('FoodDetailCtrl', function($scope, $stateParams, Foods, Restaurants) {
+.controller('FoodDetailCtrl', function($scope, $stateParams, Foods, Restaurants, Reviews) {
+  $scope.Math = window.Math;
   $scope.foodTitle = Foods.getName($stateParams.foodId);
-  $scope.avg_rating = Foods.getRating($stateParams.foodId);
+  $scope.total_rating = Foods.getRating($stateParams.foodId);
+  $scope.num_reviews = Foods.getNumReviews($stateParams.foodId);
+
   $scope.foodId = $stateParams.foodId;
-    if($stateParams.restaurantId)
-        $scope.restaurantId = $stateParams.restaurantId;
+  $scope.reviewIds = [];
+  var x = Foods.getReviews($stateParams.foodId);
+  x.$loaded().then(function(){
+    $scope.reviewIds = x;
+  });
+
+  $scope.getText = function(reviewId){
+    return Reviews.getText(reviewId);
+  }
+
+  $scope.avgScore = function(){
+    return $scope.Math.round($scope.total_rating / $scope.reviewIds.length);
+  }
 })
 
 
