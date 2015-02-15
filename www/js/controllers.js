@@ -6,7 +6,6 @@ angular.module('starter.controllers', [])
 
 .controller('RestaurantsCtrl', function($scope, MyYelpAPI, IncrementTheShit) {
   $scope.businesses = [];
-  console.log('hello');
   IncrementTheShit.addone();
   MyYelpAPI.retrieveYelp('', function(data) {
     $scope.businesses = data.businesses;
@@ -16,16 +15,20 @@ angular.module('starter.controllers', [])
 })
 
 .controller('RestaurantsDetailCtrl', function($scope, $stateParams, MyYelpBusiness, IncrementTheShit) {
-  console.log('goodbye');
   $scope.restaurantId = $stateParams.restaurantId;
   $scope.restaurant = {};
-  console.log('goodbye');
   IncrementTheShit.addone();
   MyYelpBusiness.retrieveYelp($scope.restaurantId, function(data) {
-    console.log('eat me ddd');
     $scope.restaurant = data;
-    console.log('eat me');
   }, IncrementTheShit.get());
+
+  $scope.active = 'best_dishes';
+  $scope.setActive = function(type) {
+      $scope.active = type;
+  };
+  $scope.isActive = function(type) {
+      return type === $scope.active;
+  };
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {

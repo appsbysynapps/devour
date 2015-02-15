@@ -174,9 +174,10 @@ angular.module('starter.services', ['firebase'])
   var x = -1;
   return {
     addone: function() {
-      x = x+1;
+      x = (x+1)%10;
     },
     get: function() {
+      console.log(x);
       return x;
     },
   }
