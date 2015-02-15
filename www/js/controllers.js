@@ -6,19 +6,23 @@ angular.module('starter.controllers', [])
 
 .controller('RestaurantsCtrl', function($scope, MyYelpAPI) {
   $scope.businesses = [];
+  console.log('hello');
   MyYelpAPI.retrieveYelp('', function(data) {
     $scope.businesses = data.businesses;
+    console.log(data.businesses);
   });
 
 })
 
-.controller('RestaurantsDetailCtrl', function($scope, $stateParams, MyYelpAPI) {
+.controller('RestaurantsDetailCtrl', function($scope, $stateParams, MyYelpBusiness) {
   $scope.restaurantId = $stateParams.restaurantId;
   $scope.restaurant = {};
-  MyYelpAPI.retrieveYelp('', function(data) {
-    $scope.restaurant = data.businesses[$scope.restaurantId];
+  console.log('goodbye');
+  MyYelpBusiness.retrieveYelp($scope.restaurantId, function(data) {
+    console.log('eat me ddd');
+    $scope.restaurant = data;
+    console.log('eat me');
   });
-
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {

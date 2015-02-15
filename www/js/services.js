@@ -143,8 +143,31 @@ angular.module('starter.services', ['firebase'])
       }
   }
 })
-.factory('restaurant', function() {
-  return {}
+.factory("MyYelpBusiness", function($http) {
+  function randomString(length, chars) {
+    var result = '';
+    for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
+    return result;
+  }
+  return {
+      "retrieveYelp": function(name, callback) {
+          var method = 'GET';
+          var url = 'http://api.yelp.com/v2/business/'+name;
+          var params = {
+                  callback: 'angular.callbacks._0',
+                  oauth_consumer_key: 'YXGa4ru-gTal2YshH1sA8A', //Consumer Key
+                  oauth_token: 'gmiTY407KpN0U4qdU2ea9BgJTXvianPF', //Token
+                  oauth_signature_method: "HMAC-SHA1",
+                  oauth_timestamp: new Date().getTime(),                  
+                  oauth_nonce: randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'),
+              };
+          var consumerSecret = 'bBHFOWAQyzK8JDTmBGnacSioY6c'; //Consumer Secret
+          var tokenSecret = 'bR6DViXqQNm7Pu9JdUWxDWUWD2s'; //Token Secret
+          var signature = oauthSignature.generate(method, url, params, consumerSecret, tokenSecret, { encodeSignature: false});
+          params['oauth_signature'] = signature;
+          $http.jsonp(url, {params: params}).success(callback);
+      }
+  }
 })
 /**
  * A simple example service that returns some data.
