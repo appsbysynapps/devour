@@ -52,9 +52,29 @@ angular.module('starter.controllers', [])
       }, function(error) {
         console.log("Error:", error);
     });
+  };
+})
+
+.controller('DishNewReviewCtrl', function($scope, $stateParams, Foods, Restaurants) {
+    console.log("new");
+  $scope.dish = {'name': '', 'reviews': [], 'avg_rating': 0, 'restaurantId': $stateParams.restaurantId}; 
+  console.log('peorpot' + $scope.dish);
+  $scope.submitForm = function(){
+    Foods.add($scope.dish).then(function(ref) {
+        console.log(ref.key());
+        $scope.key = ref.key();   // key for the new ly created record
+        Restaurants.addDish($scope.key, $stateParams.restaurantId);
+        $scope.dish = {
+          'name': '',
+        };
+      }, function(error) {
+        console.log("Error:", error);
+    });
     
   };
 })
+
+
 .controller('RestaurantsDetailWriteReviewCtrl', function($scope, $stateParams, Foods, Restaurants) {
   $scope.dish = {'name': '', 'reviews': [], 'avg_rating': 0, 'restaurantId': $stateParams.restaurantId}; 
   console.log('peorpot' + $scope.dish);
@@ -75,7 +95,12 @@ angular.module('starter.controllers', [])
 .controller('FoodDetailCtrl', function($scope, $stateParams, Foods, Restaurants) {
   $scope.foodTitle = Foods.getName($stateParams.foodId);
   $scope.avg_rating = Foods.getRating($stateParams.foodId);
+  $scope.foodId = $stateParams.foodId;
+    if($stateParams.restaurantId)
+        $scope.restaurantId = $stateParams.restaurantId;
 })
+
+
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
   $scope.chat = Chats.get($stateParams.chatId);

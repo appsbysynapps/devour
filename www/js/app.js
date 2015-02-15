@@ -99,12 +99,12 @@ angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'starter.
       }
     }
   })
-  .state('tab.restaurants-newDish', {
-    url: '/restaurants/:restaurantId/newDish',
+  .state('tab.food-newReview', {
+    url: '/restaurants/:restaurantId/:dishId/newReview',
     views: {
       'tab-restaurants': {
-        templateUrl: 'templates/restaurants-newdish.html',
-        controller: 'RestaurantsNewDishCtrl'
+        templateUrl: 'templates/dish-newReview.html',
+        controller: 'DishNewReviewCtrl'
       }
     }
   })
