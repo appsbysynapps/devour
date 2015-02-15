@@ -104,12 +104,17 @@ angular.module('starter.services', ['firebase'])
       return sync.$push(object);
     },
     
-    update: function(id,key,value) {
-      ref.child(id).update({key:value});
+    updateTotal: function(id,total_rating,value) {
+      ref.child(id).update({total_rating:value});
+    },
+    updateStars: function(id,stars,value) {
+        console.log("stars"+value);
+      ref.child(id).update({stars:value});
     },
     pushReview: function(id,value) {
       ref.child(id).child("reviews").push(value);
     },
+    
   }
 })
 
