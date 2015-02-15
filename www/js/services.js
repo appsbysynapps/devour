@@ -62,9 +62,18 @@ angular.module('starter.services', ['firebase'])
       return sync.$asArray();
     },
     get: function(foodId) {
-      var ref2 = new $firebase(ref.child(foodId)) ;
-      var obj = ref2.$asObject();
-      return obj;
+      var ref2 = ref.child(foodId+"/name");
+      var str = ""
+        console.log("ref2"+ref2)
+        ref2.once("value", function(data) {
+            console.log("dat"+data);
+            console.log("val"+data.val());
+            str = data.val();
+        });
+        
+        console.log("loading...")
+      return str;
+    },
     search: function(query) {
         return $filter('filter')(sync.$asArray(),function(food) {
           console.log(food.name.indexOf(query))
