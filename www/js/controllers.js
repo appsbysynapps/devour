@@ -64,7 +64,7 @@ angular.module('starter.controllers', [])
       Reviews.add($scope.review).then(function(ref) {
         console.log(ref.key());
         $scope.key = ref.key();   // key for the new ly created record
-          Foods.push($stateParams.dishId,"reviews",ref.key());
+          Foods.pushReview($stateParams.dishId,ref.key());
         //Dish.addReview($scope.key, $stateParams.restaurantId);
         $scope.review = {
           'content': '',

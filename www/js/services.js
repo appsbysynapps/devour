@@ -107,8 +107,8 @@ angular.module('starter.services', ['firebase'])
     update: function(id,key,value) {
       ref.child(id).update({key:value});
     },
-    push: function(id,value) {
-      ref.child(id).push(value);
+    pushReview: function(id,value) {
+      ref.child(id).child("reviews").push(value);
     },
   }
 })
