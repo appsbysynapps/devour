@@ -61,7 +61,16 @@ angular.module('starter.services', ['firebase'])
     all: function() {
       return sync.$asArray();
     },
-    get: function(foodId) {
+    getRating: function(foodId) {
+      var ref2 = ref.child(foodId+"/avg_rating");
+      var str = 0;
+      ref2.once("value", function(data) {
+          str = data.val();
+      });
+        
+      return str;
+    },
+    getName: function(foodId) {
       var ref2 = ref.child(foodId+"/name");
       var str = ""
       ref2.once("value", function(data) {

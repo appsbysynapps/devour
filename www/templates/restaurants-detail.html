@@ -13,7 +13,7 @@
 
 
     <div class="card" ng-repeat="dish in restaurantDishes">
-      <a href="#/tab/restaurants/{{restaurantId}}/{{dish.$id}}" style="text-decoration:none"><ion-item> {{foods.get(dish.$id)}}  </ion-item> </a>
+      <a href="#/tab/restaurants/{{restaurantId}}/{{dish.$id}}" style="text-decoration:none"><ion-item> {{foods.getName(dish.$id)}}  </ion-item> </a>
     </div>
 
     

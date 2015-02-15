@@ -74,7 +74,8 @@ angular.module('starter.controllers', [])
   };
 })
 .controller('FoodDetailCtrl', function($scope, $stateParams, Foods, Restaurants) {
-  
+  $scope.foodTitle = Foods.getName($stateParams.foodId);
+  $scope.avg_rating = Foods.getRating($stateParams.foodId);
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
