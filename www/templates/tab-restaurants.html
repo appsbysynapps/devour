@@ -1,8 +1,8 @@
 <ion-view view-title="Restaurants">
   <ion-content>
     <ion-list>
-      <div class="card" ng-repeat="restaurant in businesses" style="clear: both">
-        <ion-item> <p> {{restaurant.name}} </p> </ion-item>
+      <div class="card" ng-repeat="restaurant in businesses track by $index" style="clear: both">
+        <a href="#/tab/restaurants/{{$index}}"><ion-item>  {{restaurant.name}}  </ion-item> </a>
       </div>
   </ion-content>
 </ion-view>

@@ -1,1 +1,2 @@
 /* Empty. Add your own CSS if you like */
+img.blur {-webkit-filter: blur(15px); filter: blur(15px); }

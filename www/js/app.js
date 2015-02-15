@@ -58,23 +58,23 @@ angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'starter.
   })
 
   .state('tab.restaurants', {
-      url: '/restaurants',
-      views: {
-        'tab-restaurants': {
-          templateUrl: 'templates/tab-restaurants.html',
-          controller: 'RestaurantsCtrl'
-        }
+    url: '/restaurants',
+    views: {
+      'tab-restaurants': {
+        templateUrl: 'templates/tab-restaurants.html',
+        controller: 'RestaurantsCtrl'
       }
-    })
-    .state('tab.restaurants-detail', {
-      url: '/restaurants/:chatId',
-      views: {
-        'tab-restaurants': {
-          templateUrl: 'templates/restaurants-detail.html',
-          controller: 'RestaurantsDetailCtrl'
-        }
+    }
+  })
+  .state('tab.restaurants-detail', {
+    url: '/restaurants/:restaurantId',
+    views: {
+      'tab-restaurants': {
+        templateUrl: 'templates/restaurants-detail.html',
+        controller: 'RestaurantsDetailCtrl'
       }
-    })
+    }
+  })
 
   .state('tab.friends', {
       url: '/friends',

@@ -8,8 +8,15 @@ angular.module('starter.controllers', [])
   $scope.businesses = [];
   MyYelpAPI.retrieveYelp('', function(data) {
     $scope.businesses = data.businesses;
-    console.log(data);
-    console.log(data.businesses); 
+  });
+
+})
+
+.controller('RestaurantsDetailCtrl', function($scope, $stateParams, MyYelpAPI) {
+  $scope.restaurantId = $stateParams.restaurantId;
+  $scope.restaurant = {};
+  MyYelpAPI.retrieveYelp('', function(data) {
+    $scope.restaurant = data.businesses[$scope.restaurantId];
   });
 
 })

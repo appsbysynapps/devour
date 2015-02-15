@@ -143,6 +143,9 @@ angular.module('starter.services', ['firebase'])
       }
   }
 })
+.factory('restaurant', function() {
+  return {}
+})
 /**
  * A simple example service that returns some data.
  */
