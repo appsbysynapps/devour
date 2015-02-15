@@ -62,7 +62,21 @@ angular.module('starter.services', ['firebase'])
       return sync.$asArray();
     },
     getRating: function(foodId) {
-      var ref2 = ref.child(foodId+"/avg_rating");
+      var ref2 = ref.child(foodId+"/total_rating");
+      var str = 0;
+      ref2.once("value", function(data) {
+          str = data.val();
+      });
+        
+      return str;
+    },
+    getReviews: function(foodId) {
+      var ref2 = ref.child(foodId+"/reviews");
+      var x = $firebase(ref2).$asArray();
+      return x;
+    },
+    getNumReviews: function(foodId) {
+      var ref2 = ref.child(foodId+"/num_reviews");
       var str = 0;
       ref2.once("value", function(data) {
           str = data.val();
@@ -151,6 +165,18 @@ angular.module('starter.services', ['firebase'])
       });
         
       return rat;
+    },
+    getText: function(reviewId) {
+      var ref2 = ref.child(reviewId+"/content");
+      var str = ""
+      ref2.once("value", function(data) {
+          str = data.val();
+      });
+      return str;
+    },
+    get: function(reviewId) {
+      var ref2 = new Firebase("https://devour.firebaseio.com/reviews/"+reviewId);
+      return $firebase(ref2).$asObject();
     },
     add: function(object) {
       return sync.$push(object);
