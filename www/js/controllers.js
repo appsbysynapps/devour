@@ -56,8 +56,9 @@ angular.module('starter.controllers', [])
     });
   };
 })
-
+    
 .controller('DishNewReviewCtrl', function($scope, $stateParams, Foods, Reviews) {
+    $scope.Math = window.math;
   $scope.review = {'content': "", 'rating': 0, 'foodId': $stateParams.dishId ,'restauratId': $stateParams.restaurantId}; 
     console.log("created");
   //console.log('peorpot' + $scope.dish);
@@ -66,7 +67,20 @@ angular.module('starter.controllers', [])
       Reviews.add($scope.review).then(function(ref) {
         console.log(ref.key());
         $scope.key = ref.key();   // key for the new ly created record
-          Foods.push($stateParams.dishId,"reviews",ref.key());
+          Foods.pushReview($stateParams.dishId,ref.key());
+          var x = Foods.getReviews($stateParams.dishId);
+          var totalRatings = Foods.getRating($stateParams.dishId);
+          console.log("total"+totalRatings);
+          Foods.updateTotal($stateParams.dishId,"total_rating",totalRatings+$scope.review.rating);  
+          var newScore = totalRatings+$scope.review.rating;
+          var x = Foods.getReviews($stateParams.dishId);
+            x.$loaded().then(function(){
+                length = x.length;
+                console.log('Number of ratings: ' + length )
+                var stars = Math.round(newScore/length);
+                Foods.updateStars($stateParams.dishId, "stars", stars);
+            });
+          
         //Dish.addReview($scope.key, $stateParams.restaurantId);
         $scope.review = {
           'content': '',
