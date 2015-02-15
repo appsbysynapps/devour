@@ -49,7 +49,7 @@ angular.module('starter.services', ['firebase'])
   }
 })
 
-.factory('Foods', function($firebase) {
+.factory('Foods', function($firebase, $filter) {
   // Might use a resource here that returns a JSON array
   var ref = new Firebase("https://devour.firebaseio.com/foods");
   var sync = $firebase(ref);
@@ -65,7 +65,13 @@ angular.module('starter.services', ['firebase'])
       var ref2 = new $firebase(ref.child(foodId)) ;
       var obj = ref2.$asObject();
       return obj;
+    search: function(query) {
+        return $filter('filter')(sync.$asArray(),function(food) {
+          console.log(food.name.indexOf(query))
+          return !query || !food.name || (food.name.toLowerCase()).indexOf(query.toLowerCase())>-1;
+      });
     },
+    
     add: function(object) {
       return sync.$push(object);
     },
