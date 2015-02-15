@@ -93,8 +93,8 @@ angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'starter.
       }
     }
   })
-  .state('tab.dish-newReview', {
-    url: '/restaurants/:dishId/newReview',
+  .state('tab.food-newReview', {
+    url: '/restaurants/:restaurantId/:dishId/newReview',
     views: {
       'tab-restaurants': {
         templateUrl: 'templates/dish-newReview.html',
