@@ -1,7 +1,8 @@
 angular.module('starter.controllers', [])
 
 .controller('FoodCtrl', function($scope, Foods) {
-  $scope.foods = Foods.all();
+  $scope.foods = Foods.search;
+    console.log('not anywhere');
 })
 
 .controller('RestaurantsCtrl', function($scope, MyYelpAPI, IncrementTheShit) {

@@ -1,7 +1,18 @@
 <ion-view view-title="Food">
   <ion-content class="padding">
-    <a href="#/tab/food/add"><button class="button icon-left ion-plus-circled button-positive" >Add</button></a>
-    <div class="card" ng-repeat="food in foods" style="clear: both">
+    <div class="list">
+
+      <a href="#/tab/food/add"><button class="button icon-left ion-plus-circled button-positive" >Add</button></a>
+    <label class="item item-input">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="text" placeholder="Search" ng-model="query">
+        </label>
+
+</div>
+    
+        
+        
+    <div class="card" ng-repeat="food in foods(query)" style="clear: both">
       <ion-item href="#/tab/food/{{food.$id}}/0/0"> <p style="float:left"> {{food.name}} </p> <p style="float:right"> at {{food.restaurant}} </p></ion-item>
     </div>
   </ion-content>
