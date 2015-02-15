@@ -14,14 +14,14 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('RestaurantsDetailCtrl', function($scope, $stateParams, MyYelpBusiness, IncrementTheShit) {
+.controller('RestaurantsDetailCtrl', function($scope, $stateParams, MyYelpBusiness, IncrementTheShit, Foods, Restaurants) {
   $scope.restaurantId = $stateParams.restaurantId;
-  $scope.restaurant = {};
   IncrementTheShit.addone();
   MyYelpBusiness.retrieveYelp($scope.restaurantId, function(data) {
     $scope.restaurant = data;
+    $scope.restaurantDishes = Restaurants.getDishes($scope.restaurantId); //firebase restaurant
   }, IncrementTheShit.get());
-
+  $scope.foods = Foods;
   $scope.active = 'best_dishes';
   $scope.setActive = function(type) {
       $scope.active = type;
@@ -29,10 +29,31 @@ angular.module('starter.controllers', [])
   $scope.isActive = function(type) {
       return type === $scope.active;
   };
+
+  $scope.getName = function(object){
+    console.log(object.$id);
+    return 'baka';
+  }
+
+  //Foods.get('-JiAgIbx077TEtDYfICn')
 })
 
-.controller('RestaurantsDetailNewDishCtrl', function($scope, $stateParams, MyYelpBusiness, IncrementTheShit) {
-  
+.controller('RestaurantsDetailNewDishCtrl', function($scope, $stateParams, Foods, Restaurants) {
+  $scope.dish = {'name': '', 'reviews': [], 'avg_rating': 0, 'restaurantId': $stateParams.restaurantId}; 
+  console.log('peorpot' + $scope.dish);
+  $scope.submitForm = function(){
+    Foods.add($scope.dish).then(function(ref) {
+        console.log(ref.key());
+        $scope.key = ref.key();   // key for the new ly created record
+        Restaurants.addDish($scope.key, $stateParams.restaurantId);
+        $scope.dish = {
+          'name': '',
+        };
+      }, function(error) {
+        console.log("Error:", error);
+    });
+    
+  };
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
@@ -58,7 +79,6 @@ angular.module('starter.controllers', [])
       'name': '',
       'restaurant': ''
     };
-
   };
 
 })

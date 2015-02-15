@@ -61,12 +61,13 @@ angular.module('starter.services', ['firebase'])
     all: function() {
       return sync.$asArray();
     },
-    get: function(quizId) {
-      var ref2 = new Firebase("https://devour.firebaseio.com/foods"+foodId);
-      return $firebase(ref2).$asObject();
+    get: function(foodId) {
+      var ref2 = new $firebase(ref.child(foodId)) ;
+      var obj = ref2.$asObject();
+      return obj;
     },
     add: function(object) {
-      sync.$push(object);
+      return sync.$push(object);
     },
   }
 })
@@ -83,12 +84,13 @@ angular.module('starter.services', ['firebase'])
     all: function() {
       return sync.$asArray();
     },
-    get: function(quizId) {
-      var ref2 = new Firebase("https://devour.firebaseio.com/foods"+foodId);
-      return $firebase(ref2).$asObject();
+    getDishes: function(restaurantId) {
+      var ref2 = new Firebase("https://devour.firebaseio.com/restaurants/"+restaurantId+"/dishes");
+      return $firebase(ref2).$asArray();
     },
-    add: function(object) {
-      sync.$push(object);
+    addDish: function(object, restaurantId) {
+      var ref2 = new Firebase("https://devour.firebaseio.com/restaurants/"+restaurantId+"/dishes");
+      $firebase(ref2).$set(object, true);
     },
   }
 })
@@ -165,7 +167,6 @@ angular.module('starter.services', ['firebase'])
           var tokenSecret = 'bR6DViXqQNm7Pu9JdUWxDWUWD2s'; //Token Secret
           var signature = oauthSignature.generate(method, url, params, consumerSecret, tokenSecret, { encodeSignature: false});
           params['oauth_signature'] = signature;
-          console.log(name);
           $http.jsonp(url, {params: params}).success(callback).error(function(data, boo){console.log(data, boo)});
       }
   }

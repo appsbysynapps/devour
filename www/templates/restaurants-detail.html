@@ -15,7 +15,9 @@
     
     <a ng-show="isActive('best_dishes')" href="#/tab/restaurants/{{restaurantId}}/newDish" style="text-decoration:none"><button class="button button-block button-positive" >Add Dish</button></a>
     <div ng-show="isActive('best_dishes')">
-      yommamam
+      <div class="card" ng-repeat="dish in restaurantDishes">
+        <a href=""><ion-item>  bop {{foods.get(dish.$id).restaurantId}}  </ion-item> </a>
+      </div>
     </div>
     <div ng-show="isActive('recent_reviews')">
       yodadadd
