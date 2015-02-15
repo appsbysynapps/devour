@@ -75,6 +75,15 @@ angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'starter.
       }
     }
   })
+  .state('tab.restaurants-newDish', {
+    url: '/restaurants/:restaurantId/newDish',
+    views: {
+      'tab-restaurants': {
+        templateUrl: 'templates/restaurants-newdish.html',
+        controller: 'RestaurantsNewDishCtrl'
+      }
+    }
+  })
 
   .state('tab.friends', {
       url: '/friends',
