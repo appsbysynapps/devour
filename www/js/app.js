@@ -84,6 +84,15 @@ angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'starter.
       }
     }
   })
+  .state('tab.restaurants-detail-writereview', {
+    url: '/restaurants/:restaurantId/writeReview',
+    views: {
+      'tab-restaurants': {
+        templateUrl: 'templates/restaurants-writeReview.html',
+        controller: 'RestaurantsDetailWriteReviewCtrl'
+      }
+    }
+  })
   .state('tab.restaurants-newDish', {
     url: '/restaurants/:restaurantId/newDish',
     views: {
@@ -93,7 +102,15 @@ angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'starter.
       }
     }
   })
-
+  .state('tab.restaurants-foodDetail', {
+    url: '/restaurants/:restaurantId/:foodId',
+    views: {
+      'tab-restaurants': {
+        templateUrl: 'templates/food_detail.html',
+        controller: 'FoodDetailCtrl'
+      }
+    }
+  })
   .state('tab.friends', {
       url: '/friends',
       views: {

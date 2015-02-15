@@ -56,6 +56,26 @@ angular.module('starter.controllers', [])
     
   };
 })
+.controller('RestaurantsDetailWriteReviewCtrl', function($scope, $stateParams, Foods, Restaurants) {
+  $scope.dish = {'name': '', 'reviews': [], 'avg_rating': 0, 'restaurantId': $stateParams.restaurantId}; 
+  console.log('peorpot' + $scope.dish);
+  $scope.submitForm = function(){
+    Foods.add($scope.dish).then(function(ref) {
+        console.log(ref.key());
+        $scope.key = ref.key();   // key for the new ly created record
+        Restaurants.addDish($scope.key, $stateParams.restaurantId);
+        $scope.dish = {
+          'name': '',
+        };
+      }, function(error) {
+        console.log("Error:", error);
+    });
+    
+  };
+})
+.controller('FoodDetailCtrl', function($scope, $stateParams, Foods, Restaurants) {
+  
+})
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
   $scope.chat = Chats.get($stateParams.chatId);

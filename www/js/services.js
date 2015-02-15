@@ -64,14 +64,10 @@ angular.module('starter.services', ['firebase'])
     get: function(foodId) {
       var ref2 = ref.child(foodId+"/name");
       var str = ""
-        console.log("ref2"+ref2)
-        ref2.once("value", function(data) {
-            console.log("dat"+data);
-            console.log("val"+data.val());
-            str = data.val();
-        });
+      ref2.once("value", function(data) {
+          str = data.val();
+      });
         
-        console.log("loading...")
       return str;
     },
     search: function(query) {

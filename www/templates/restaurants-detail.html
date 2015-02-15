@@ -6,22 +6,16 @@
 -->
 <ion-view>
   <ion-content class="padding">
-    <div style="text-align:center" height='100%'><h1 style="padding-top:30%; padding-bottom:30%;color:white; font-family: 'Oswald', sans-serif; font-size:50px;"> {{restaurant.name.toUpperCase()}}</h1></div>
+    <div style="text-align:center" height='100%'><h1 style="padding-top:30%; padding-bottom:30%;color:white; font-family: 'Oswald', sans-serif; font-size:40px;"> {{restaurant.name.toUpperCase()}}</h1></div>
     <img class="blur" ng-src="{{restaurant.image_url.substring(0, restaurant.image_url.lastIndexOf('ms'))+'o.jpg'}}" style="position:absolute; top:0; height:auto; width:100%; z-index:-1">
-    <div class="button-bar">
-        <a class="button" ng-class="{'button-calm': isActive('best_dishes')}" ng-click="setActive('best_dishes')"> Dishes</a>
-        <a class="button" ng-class="{'button-calm': isActive('recent_reviews')}" ng-click="setActive('recent_reviews')">Reviews</a>
-    </div>
     
-    <a ng-show="isActive('best_dishes')" href="#/tab/restaurants/{{restaurantId}}/newDish" style="text-decoration:none"><button class="button button-block button-positive" >Add Dish</button></a>
-    <div ng-show="isActive('best_dishes')">
-      <div class="card" ng-repeat="dish in restaurantDishes">
-        <a href=""><ion-item>  bop {{foods.get(dish.$id)}}  </ion-item> </a>
-      </div>
+    <a href="#/tab/restaurants/{{restaurantId}}/newDish" style="text-decoration:none"><button class="button button-block button-positive" >Add Dish</button></a>
+
+
+    <div class="card" ng-repeat="dish in restaurantDishes">
+      <a href="#/tab/restaurants/{{restaurantId}}/{{dish.$id}}" style="text-decoration:none"><ion-item> {{foods.get(dish.$id)}}  </ion-item> </a>
     </div>
-    <div ng-show="isActive('recent_reviews')">
-      yodadadd
-    </div>
+
     
   </ion-content>
 
