@@ -6,7 +6,7 @@
 -->
 <ion-view>
   <ion-content class="padding">
-    <div style="text-align:center" height='100%'><h1> {{restaurant.name}}</h1></div>
+    <div style="text-align:center" height='100%'><h1 style="padding-top:40%; padding-bottom:20%;color:white; font-family: 'Oswald', sans-serif; font-size:50px;"> {{restaurant.name.toUpperCase()}}</h1></div>
     <img class="blur" ng-src="{{restaurant.image_url.substring(0, restaurant.image_url.lastIndexOf('ms'))+'o.jpg'}}" style="position:absolute; top:0; height:auto; width:100%; z-index:-1">
   </ion-content>
 </ion-view>
