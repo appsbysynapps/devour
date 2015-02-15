@@ -1,24 +1,22 @@
 <ion-view>
   <ion-content class="padding">
     
-    <form novalidate name="userForm" ng-submit="submitForm()">
-        <i class="icon ion-android-star-outline" style="font-size:30px" ng-click="rating=1" ng-hide="rating>0"></i>
-        <i class="icon ion-android-star" style="font-size:30px" ng-click="rating=1" ng-show="rating>0"></i>
-        <i class="icon ion-android-star-outline" style="font-size:30px" ng-click="rating=2" ng-hide="rating>1"></i>
-        <i class="icon ion-android-star" style="font-size:30px" ng-click="rating=2" ng-show="rating>1"></i>
-        <i class="icon ion-android-star-outline" style="font-size:30px" ng-click="rating=3" ng-hide="rating>2"></i>
-        <i class="icon ion-android-star" style="font-size:30px" ng-click="rating=3" ng-show="rating>2"></i>
-        <i class="icon ion-android-star-outline" style="font-size:30px" ng-click="rating=4" ng-hide="rating>3"></i>
-        <i class="icon ion-android-star" style="font-size:30px" ng-click="rating=4" ng-show="rating>3"></i>
-        <i class="icon ion-android-star-outline" style="font-size:30px" ng-click="rating=5" ng-hide="rating>4"></i>
-        <i class="icon ion-android-star" style="font-size:30px" ng-click="rating=5" ng-show="rating>4"></i>
-      <label class="item item-input">
-          <label class="item item-input"><textarea placeholder="What do you think of the dish?" ng-model="review.content"></textarea></label>
-      </label>
+    <form novalidate name="userForm" ng-submit="submitForm()" align="center">
+        <i class="icon ion-android-star-outline" style="font-size:100px" ng-click="review.rating=1" ng-hide="review.rating>0"></i>
+        <i class="icon ion-android-star" style="font-size:100px" ng-click="review.rating=review.rating==1 ? 0 : 1" ng-show="review.rating>0"></i>
+        <i class="icon ion-android-star-outline" style="font-size:100px" ng-click="review.rating=2" ng-hide="review.rating>1"></i>
+        <i class="icon ion-android-star" style="font-size:100px" ng-click="review.rating=review.rating==2 ? 0 : 2" ng-show="review.rating>1"></i>
+        <i class="icon ion-android-star-outline" style="font-size:100px" ng-click="review.rating=3" ng-hide="review.rating>2"></i>
+        <i class="icon ion-android-star" style="font-size:100px" ng-click="review.rating=review.rating==3 ? 0 : 3" ng-show="review.rating>2"></i>
+        <i class="icon ion-android-star-outline" style="font-size:100px" ng-click="review.rating=4" ng-hide="review.rating>3"></i>
+        <i class="icon ion-android-star" style="font-size:100px" ng-click="review.rating=review.rating==4 ? 0 : 4" ng-show="review.rating>3"></i>
+        <i class="icon ion-android-star-outline" style="font-size:100px" ng-click="review.rating=5" ng-hide="review.rating>4"></i>
+        <i class="icon ion-android-star" style="font-size:100px" ng-click="review.rating=review.rating==5 ? 0 : 5" ng-show="review.rating>4"></i>
+          <label class="item item-input"><textarea placeholder="What do you think of the dish?" ng-model="review.content" style="height:300px" required></textarea></label>
 
-      <button type="submit" class="button button-block button-balanced" ng-disabled="userForm.$invalid">
+      <button type="submit" class="button button-block button-balanced" ng-disabled="userForm.$invalid || review.rating==0">
         Submit
-      </button> 
+      </button>
     </form>
 
   </ion-content>

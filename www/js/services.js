@@ -89,6 +89,13 @@ angular.module('starter.services', ['firebase'])
     add: function(object) {
       return sync.$push(object);
     },
+    
+    update: function(id,key,value) {
+      ref.child(id).update({key:value});
+    },
+    push: function(id,value) {
+      ref.child(id).push(value);
+    },
   }
 })
 
@@ -127,12 +134,26 @@ angular.module('starter.services', ['firebase'])
     all: function() {
       return sync.$asArray();
     },
-    get: function(quizId) {
-      var ref2 = new Firebase("https://devour.firebaseio.com/foods"+foodId);
-      return $firebase(ref2).$asObject();
+    getContent: function(reviewId) {
+      var ref2 = ref.child(reviewId+"/content");
+      var str = 0;
+      ref2.once("value", function(data) {
+          str = data.val();
+      });
+        
+      return str;
+    },
+    getRating: function(reviewId) {
+      var ref2 = ref.child(reviewId+"/rating");
+      var rat = 0
+      ref2.once("value", function(data) {
+          rat = data.val();
+      });
+        
+      return rat;
     },
     add: function(object) {
-      sync.$push(object);
+      return sync.$push(object);
     },
   }
 })

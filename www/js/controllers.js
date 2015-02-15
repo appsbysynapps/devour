@@ -55,17 +55,19 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('DishNewReviewCtrl', function($scope, $stateParams, Foods, Restaurants) {
-    console.log("new");
-  $scope.dish = {'name': '', 'reviews': [], 'avg_rating': 0, 'restaurantId': $stateParams.restaurantId}; 
-  console.log('peorpot' + $scope.dish);
+.controller('DishNewReviewCtrl', function($scope, $stateParams, Foods, Reviews) {
+  $scope.review = {'content': "", 'rating': 0, 'foodId': $stateParams.dishId ,'restauratId': $stateParams.restaurantId}; 
+    console.log("created");
+  //console.log('peorpot' + $scope.dish);
   $scope.submitForm = function(){
-    Foods.add($scope.dish).then(function(ref) {
+      console.log("submitting");
+      Reviews.add($scope.review).then(function(ref) {
         console.log(ref.key());
         $scope.key = ref.key();   // key for the new ly created record
-        Restaurants.addDish($scope.key, $stateParams.restaurantId);
-        $scope.dish = {
-          'name': '',
+          Foods.push($stateParams.dishId,"reviews",ref.key());
+        //Dish.addReview($scope.key, $stateParams.restaurantId);
+        $scope.review = {
+          'content': '',
         };
       }, function(error) {
         console.log("Error:", error);
@@ -74,9 +76,9 @@ angular.module('starter.controllers', [])
   };
 })
 
-
+/*
 .controller('RestaurantsDetailWriteReviewCtrl', function($scope, $stateParams, Foods, Restaurants) {
-  $scope.dish = {'name': '', 'reviews': [], 'avg_rating': 0, 'restaurantId': $stateParams.restaurantId}; 
+  $scope.dish = {'name': '', 'reviews': [], 'avg_rating': 0, 'restaurantId': $stateParams.restaurantId};
   console.log('peorpot' + $scope.dish);
   $scope.submitForm = function(){
     Foods.add($scope.dish).then(function(ref) {
@@ -92,6 +94,7 @@ angular.module('starter.controllers', [])
     
   };
 })
+*/
 .controller('FoodDetailCtrl', function($scope, $stateParams, Foods, Restaurants) {
   $scope.foodTitle = Foods.getName($stateParams.foodId);
   $scope.avg_rating = Foods.getRating($stateParams.foodId);
